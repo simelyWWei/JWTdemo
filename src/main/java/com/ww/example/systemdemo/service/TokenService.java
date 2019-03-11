@@ -21,7 +21,7 @@ public class TokenService {
     public String createToken(String userName,String passwd){
         // 设置超时时间
         DateTime now = DateTime.now();
-        DateTime dateTime = now.plusMinutes(1);
+        DateTime dateTime = now.plusMinutes(15);
         Date iaDate = now.toDate();
         Date expiresDate = dateTime.toDate();
         // 设置jwt头部
