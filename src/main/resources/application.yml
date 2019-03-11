@@ -1,0 +1,38 @@
+server:
+  port: 9082 #项目端口
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+#  datasource:
+#    url: jdbc:mysql://10.191.20.2:3306/jingwei?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+#    username: root
+#    password: 92Cb_IBt9_23cn
+#    filters: wall,mergeStat
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/myspring?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+    username: root
+    password: 123456
+    druid:
+      initial-size: 1
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+      min-evictable-idle-time-millis: 30000
+      time-between-eviction-runs-millis: 60000
+      validation-query: select 1
+      test-while-idle: true   #空闲时检查
+      test-on-borrow: false  #取连接时校验
+      test-on-return: false  #归还数据源时校验
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+
+mybatis-plus:
+  mapper-locations: classpath*:mapping/*.xml
+  typeAliasesPackage: com.my.gunsmybatisplusdemo.domainmysql
+  configuration:
+    map-underscore-to-camel-case: false
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
